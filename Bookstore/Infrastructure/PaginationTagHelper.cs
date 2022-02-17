@@ -31,7 +31,7 @@ namespace Bookstore.Infrastructure
         public PageInfo PageBlah { get; set; }
         public string PageAction { get; set; }
 
-        public /**override**/ void Process (TagHelperContent thc, TagHelperOutput tho)
+        public override void Process (TagHelperContent thc, TagHelperOutput tho)
         {
             IUrlHelper uh = uhf.GetUrlHelper(vc);
 
