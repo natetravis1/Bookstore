@@ -75,3 +75,4 @@ C:\Users\natet\source\repos\Bookstore\Bookstore\bin\Debug\netcoreapp3.1\runtimes
 C:\Users\natet\source\repos\Bookstore\Bookstore\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\natet\source\repos\Bookstore\Bookstore\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\natet\source\repos\Bookstore\Bookstore\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\natet\source\repos\Bookstore\Bookstore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\BookSummary.cshtml.g.cs
