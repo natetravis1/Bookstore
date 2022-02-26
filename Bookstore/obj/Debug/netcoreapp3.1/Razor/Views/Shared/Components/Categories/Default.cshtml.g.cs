@@ -13,21 +13,28 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 2 "C:\Users\natet\source\repos\Bookstore\Bookstore\Views\_ViewImports.cshtml"
+#line 4 "C:\Users\natet\source\repos\Bookstore\Bookstore\Views\_ViewImports.cshtml"
 using Bookstore.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\natet\source\repos\Bookstore\Bookstore\Views\_ViewImports.cshtml"
+#line 5 "C:\Users\natet\source\repos\Bookstore\Bookstore\Views\_ViewImports.cshtml"
 using Bookstore.Models.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\natet\source\repos\Bookstore\Bookstore\Views\_ViewImports.cshtml"
+using Bookstore.Infrastructure;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"69183bc7babfebc6191b2baf423b9bc8cc51a105", @"/Views/Shared/Components/Categories/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5274b5d5f5ce692d8720bd88d9b1d1343d2366de", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"478862f3b70e9db4874ac7cbf823bd556d0dd791", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_Categories_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<string>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -61,7 +68,7 @@ using Bookstore.Models.ViewModels;
         {
             WriteLiteral("\r\n");
             WriteLiteral("\r\n<div class=\"d-grid gap-2\">\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69183bc7babfebc6191b2baf423b9bc8cc51a1054846", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69183bc7babfebc6191b2baf423b9bc8cc51a1055033", async() => {
                 WriteLiteral("Home");
             }
             );
@@ -97,7 +104,7 @@ using Bookstore.Models.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69183bc7babfebc6191b2baf423b9bc8cc51a1057290", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69183bc7babfebc6191b2baf423b9bc8cc51a1057477", async() => {
 #nullable restore
 #line 12 "C:\Users\natet\source\repos\Bookstore\Bookstore\Views\Shared\Components\Categories\Default.cshtml"
                                                                                              Write(c);

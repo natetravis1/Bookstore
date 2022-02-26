@@ -20,6 +20,15 @@
         <li>ISBN: @Model.Isbn</li>
         <li>Classification: @Model.Classification</li>
         <li>Pages: @Model.PageCount</li>
-        <!--<li>Price: $@Model.Price</li>-->
     </ul>
+
+    <form method="post" asp-page="/ShoppingCart">
+        <input type="hidden" asp-for="@Model.BookId" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+        <span class="card-text">
+            <button type="submit" class="btn btn-success btn-sm float-end">Add to cart</button>
+        </span>
+    </form>
 </div>
+
