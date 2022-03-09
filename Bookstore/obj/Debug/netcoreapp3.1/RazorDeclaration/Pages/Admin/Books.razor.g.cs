@@ -55,13 +55,34 @@ using Bookstore.Models;
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/admin/books")]
     [Microsoft.AspNetCore.Components.RouteAttribute("/admin")]
-    public partial class Books : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class Books : OwningComponentBase<IBookstoreRepository>
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 39 "C:\Users\natet\source\repos\Bookstore\Bookstore\Pages\Admin\Books.razor"
+       
+
+    public IBookstoreRepository repo => Service;
+
+    public IEnumerable<Books> BookData { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        BookData = await repo.Books.ToListAsync();
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591
