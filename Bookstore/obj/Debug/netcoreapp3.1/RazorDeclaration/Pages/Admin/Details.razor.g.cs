@@ -53,9 +53,8 @@ using Bookstore.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/booklist")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin")]
-    public partial class BookList : OwningComponentBase<IBookstoreRepository>
+    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/booklist/details/{id:long}")]
+    public partial class Details : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -63,31 +62,24 @@ using Bookstore.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 55 "C:\Users\natet\source\repos\Bookstore\Bookstore\Pages\Admin\BookList.razor"
+#line 24 "C:\Users\natet\source\repos\Bookstore\Bookstore\Pages\Admin\Details.razor"
        
 
-    public IBookstoreRepository repo => Service;
+    [Inject]
+    public IBookstoreRepository repo { get; set; }
 
-    public IEnumerable<Books> BookData { get; set; }
+    [Parameter]
+    public long Id { get; set; }
 
-    protected async override Task OnInitializedAsync()
+    public Books book { get; set; }
+
+    protected override void OnParametersSet()
     {
-        await UpdateData();
+        book = repo.Books.FirstOrDefault(x => x.BookId == Id);
     }
 
-    public async Task UpdateData()
-    {
-        BookData = await repo.Books.ToListAsync();
-    }
+    public string EditUrl => $"/admin/booklist/edit/{book.BookId}";
 
-    public string GetDetailsUrl(long id) => $"/admin/booklist/details/{id}";
-    public string GetEditUrl(long id) => $"/admin/booklist/edit/{id}";
-
-    public async Task RemoveBook (Books b)
-    {
-        repo.DeleteBook(b);
-        await UpdateData();
-    }
 
 #line default
 #line hidden

@@ -53,9 +53,9 @@ using Bookstore.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/booklist")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin")]
-    public partial class BookList : OwningComponentBase<IBookstoreRepository>
+    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/booklist/edit/{id:long}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/booklist/create")]
+    public partial class Editor : OwningComponentBase<IBookstoreRepository>
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -63,31 +63,44 @@ using Bookstore.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 55 "C:\Users\natet\source\repos\Bookstore\Bookstore\Pages\Admin\BookList.razor"
+#line 73 "C:\Users\natet\source\repos\Bookstore\Bookstore\Pages\Admin\Editor.razor"
        
+
+    [Parameter]
+    public long Id { get; set; } = 0;
+
+    public string ThemeColor => Id == 0 ? "primary" : "warning";
+    public string TitleText => Id == 0 ? "Create" : "Edit";
+
+    public Books b { get; set; } = new Books();
 
     public IBookstoreRepository repo => Service;
 
-    public IEnumerable<Books> BookData { get; set; }
-
-    protected async override Task OnInitializedAsync()
+    protected override void OnParametersSet()
     {
-        await UpdateData();
+        if (Id != 0) // if existing project
+        {
+            b = repo.Books.FirstOrDefault(x => x.BookId == Id);
+        }
     }
 
-    public async Task UpdateData()
+    public void SaveBook()
     {
-        BookData = await repo.Books.ToListAsync();
+        if (Id == 0) // if new project
+        {
+            repo.CreateBook(b);
+        }
+        else
+        {
+            repo.SaveBook(b);
+        }
+
+        NavManager.NavigateTo("/admin/booklist");
     }
 
-    public string GetDetailsUrl(long id) => $"/admin/booklist/details/{id}";
-    public string GetEditUrl(long id) => $"/admin/booklist/edit/{id}";
+    [Inject]
+    public NavigationManager NavManager { get; set; }
 
-    public async Task RemoveBook (Books b)
-    {
-        repo.DeleteBook(b);
-        await UpdateData();
-    }
 
 #line default
 #line hidden
