@@ -19,6 +19,18 @@
 
     <div class="m-1 p-1">
 
+        <!-- extra bootstrap #1 -->
+        <div class="alert alert-primary" role="alert">
+            <span style="padding-left: 16px">
+                You must log in to view this page
+            </span>
+
+            <!-- extra bootstrap #2 -->
+            <div class="spinner-grow text-primary" style="float: left; width: 1.5rem; height: 1.5rem;" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
         <div class="text-danger" asp-validation-summary="All"></div>
 
         <form method="post" asp-controller="Account" asp-action="Login">
